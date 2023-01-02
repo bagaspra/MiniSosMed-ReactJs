@@ -26,7 +26,7 @@ function ThreadInput({ threadInput }) {
           </h5>
           <div>
             <label
-              htmlFor="email"
+              htmlFor="title"
               className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Judul
@@ -53,7 +53,7 @@ function ThreadInput({ threadInput }) {
           </div>
           <div>
             <label
-              htmlFor="email"
+              htmlFor="category"
               className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Kategori

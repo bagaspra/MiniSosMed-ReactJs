@@ -1,7 +1,6 @@
 /* eslint-disable consistent-return */
 import React from 'react';
 import PropTypes from 'prop-types';
-import parse from 'html-react-parser';
 import { postedAt } from '../utils';
 
 function ThreadCommentItem({ content, createdAt, owner }) {
@@ -17,7 +16,7 @@ function ThreadCommentItem({ content, createdAt, owner }) {
         </div>
       </div>
       <div className="mt-2">
-        <p>{parse(content)}</p>
+        <p dangerouslySetInnerHTML={{ __html: content }} />
       </div>
       <hr className="my-6 border-gray-200" />
     </div>

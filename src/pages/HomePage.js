@@ -39,16 +39,16 @@ function HomePage() {
     dispatch(asyncNeutralDownVoteThread(id));
   };
 
-  const threadCategoryList = threads.filter(
-    (thread, index) =>
-      threads.findIndex((obj) => obj.category === thread.category) === index
-  );
-
   const threadList = threads.map((thread) => ({
     ...thread,
     user: users.find((user) => user.id === thread.ownerId),
     authUser: authUser.id,
   }));
+
+  const threadCategoryList = threads.filter(
+    (thread, index) =>
+      threads.findIndex((item) => item.category === thread.category) === index
+  );
 
   return (
     <div className='flex justify-center items-center'>

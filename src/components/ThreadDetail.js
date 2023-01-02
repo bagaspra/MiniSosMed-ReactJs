@@ -1,7 +1,5 @@
-/* eslint-disable no-undef */
 import React from 'react';
 import PropTypes from 'prop-types';
-import parse from 'html-react-parser';
 import { AiOutlineLike, AiOutlineDislike } from 'react-icons/ai';
 import { postedAt } from '../utils';
 import ThreadCommentInput from './ThreadCommentInput';
@@ -60,7 +58,7 @@ function ThreadDetail({
         </header>
         <div className='mb-3'>
           <div className='text-lg'>
-            {parse(body)}
+            <span dangerouslySetInnerHTML={{ __html: body }} />
           </div>
         </div>
         <div className='flex mb-7'>
@@ -71,13 +69,13 @@ function ThreadDetail({
               className="mr-1"
             >
               {isThreadUpVote ? (
-                <AiOutlineLike style={{ color: 'blue' }} />
+                <AiOutlineLike className='text-blue-500' />
               ) : (
                 <AiOutlineLike />
               )}
             </button>
             {isThreadUpVote ? (
-              <span style={{ color: 'blue' }}>{upVotesBy.length}</span>
+              <span className='text-blue-500'>{upVotesBy.length}</span>
             ) : (
               <span>{upVotesBy.length}</span>
             )}
@@ -90,13 +88,13 @@ function ThreadDetail({
               className="mr-1"
             >
               {isThreadDownVote ? (
-                <AiOutlineDislike style={{ color: 'red' }} />
+                <AiOutlineDislike className='text-red-500' />
               ) : (
                 <AiOutlineDislike />
               )}
             </button>
             {isThreadDownVote ? (
-              <span style={{ color: 'red' }}>{downVotesBy.length}</span>
+              <span className='text-red-500'>{downVotesBy.length}</span>
             ) : (
               <span>{downVotesBy.length}</span>
             )}
