@@ -10,7 +10,8 @@ function ThreadInput({ threadInput }) {
   const [category, onCategoryChange] = useInput('');
   const navigate = useNavigate();
 
-  function threadInputHandler() {
+  function threadInputHandler(e) {
+    e.preventDefault();
     if (title.trim() && body.trim() && category.trim()) {
       threadInput(title, body, category);
       navigate('/');
@@ -18,7 +19,7 @@ function ThreadInput({ threadInput }) {
   }
 
   return (
-    <div className='flex justify-center items-center'>
+    <div className="flex justify-center items-center">
       <div className="w-full max-w-3xl p-4 bg-white border border-gray-200 rounded-lg shadow-md py-20">
         <form className="space-y-6" onSubmit={threadInputHandler}>
           <h5 className="text-xl font-medium text-gray-900 text-center">
@@ -42,14 +43,20 @@ function ThreadInput({ threadInput }) {
             />
           </div>
           <div>
-            <label htmlFor="thread" className="block mb-2 text-sm font-medium text-gray-90">Isi Thread</label>
+            <label
+              htmlFor="thread"
+              className="block mb-2 text-sm font-medium text-gray-90"
+            >
+              Isi Thread
+            </label>
             <textarea
               placeholder="Text..."
               style={{ height: 200 }}
               value={body}
               onChange={onBodyChange}
               id="thread"
-              className="thread block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" />
+              className="thread block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+            />
           </div>
           <div>
             <label

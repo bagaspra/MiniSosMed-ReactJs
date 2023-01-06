@@ -26,11 +26,12 @@ function clearThreadDetailActionCreator() {
   };
 }
 
-function addCommentActionCreator(comment) {
+function addCommentActionCreator(idThread, content) {
   return {
     type: ActionType.ADD_COMMENT,
     payload: {
-      comment,
+      idThread,
+      content,
     },
   };
 }

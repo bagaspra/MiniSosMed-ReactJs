@@ -7,7 +7,10 @@ function threadDetailReducer(threadDetail = null, action = {}) {
     case ActionType.CLEAR_THREAD_DETAIL:
       return null;
     case ActionType.ADD_COMMENT:
-      return [action.payload];
+      return {
+        ...threadDetail,
+        comments: [...threadDetail.comments, action.payload.content],
+      };
     case ActionType.UP_VOTE_THREAD_DETAIL:
       return {
         ...threadDetail,
